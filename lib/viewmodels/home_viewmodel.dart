@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 class HomeViewModel extends GetxController{
 final WeatherService _weatherService=WeatherService();
 WeatherModel? data;
-var city = "ankara".obs;
+var city = "istanbul".obs;
 
 
 Future<void> fetchData()async{
