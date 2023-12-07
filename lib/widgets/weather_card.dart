@@ -13,31 +13,37 @@ class WeatherCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image.asset(
-          imagePath,
-          height: MediaQuery.of(context).size.height * 0.175,
+        Expanded(
+          child: Image.asset(
+            imagePath,
+            height: MediaQuery.of(context).size.height * 0.175,
+          ),
         ),
-        Column(
-          children: [
-            Text(
-              degrees,
-              style: Theme.of(context)
-                  .textTheme
-                  .displayLarge!
-                  .copyWith(color: GlobalColors.white),
-              textAlign: TextAlign.center,
-            ),
-    
-                     Text(
-              description,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(color: GlobalColors.white),
-              textAlign: TextAlign.center,
-            ),
-          ],
+        Expanded(
+          child: Column(
+            children: [
+              Text(
+                degrees,
+                style: Theme.of(context)
+                    .textTheme
+                    .displayMedium!
+                    .copyWith(color: GlobalColors.white),
+                textAlign: TextAlign.center,
+              ),
+              
+                       Text(
+                description,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge!
+                    .copyWith(color: GlobalColors.white),
+                textAlign: TextAlign.center,
+              ),
+              
+            ],
+          ),
         ),
       ],
     );
