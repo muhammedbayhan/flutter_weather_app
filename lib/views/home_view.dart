@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_weather_app/constants/global_colors.dart';
 import 'package:flutter_weather_app/constants/page_padding.dart';
+import 'package:flutter_weather_app/widgets/location_info.dart';
 import 'package:flutter_weather_app/widgets/status_card.dart';
 import 'package:flutter_weather_app/widgets/weather_card.dart';
 
@@ -20,45 +21,19 @@ class HomeView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Ankara,",
-              style: Theme.of(context)
-                  .textTheme
-                  .displaySmall!
-                  .copyWith(color: GlobalColors.white),
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              "TR",
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(color: GlobalColors.white),
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              "Thur,Dec 7",
-              style: Theme.of(context)
-                  .textTheme
-                  .titleSmall!
-                  .copyWith(color: GlobalColors.systemGrey),
-              textAlign: TextAlign.center,
-            ),
-            WeatherCard(),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.35,
-              child: ListView(
-                children: [
-                  StatusCard(),
-                  StatusCard(),
-                  StatusCard(),
-                      
-                ],
-              ),
-            ),
+          Expanded(flex: 1, child: LocationInfo(city: "Ankara",country: "TR",)),
+          Expanded(flex: 2,child: WeatherCard(imagePath: "assets/images/sun_cloud.png",degrees: "20",description: "Rain",)),
+          Expanded(child: StatusCard(title: "RainFall", data: "5cm",imagePath: "assets/images/umbrella.png",)),
+          Expanded(child: StatusCard(title: "Wind", data: "15km/h",imagePath: "assets/images/wind.png",)),
+          Expanded(child: StatusCard(title: "Humidity",data: "%10",imagePath: "assets/images/humidity.png",)),
+         
+            
+
+            Expanded(flex: 1,child: Container())
           ],
         ),
       ),
     );
   }
 }
+

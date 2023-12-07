@@ -4,10 +4,13 @@ import 'package:flutter_weather_app/constants/global_colors.dart';
 import 'package:flutter_weather_app/constants/page_padding.dart';
 
 class StatusCard extends StatelessWidget {
-  const StatusCard({
-    super.key,
+   StatusCard({
+    super.key,required this.imagePath,required this.title,required this.data
   });
 
+  String imagePath;
+  String title;
+  String data;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -18,9 +21,9 @@ class StatusCard extends StatelessWidget {
         child: Padding(
           padding: PagePadding.cardPadding,
           child: ListTile(
-            leading: Icon(Icons.wind_power_rounded),
-            title: Text("Wind"),
-            trailing: Text("15km/h"),
+            leading: Image.asset(imagePath,height: 100,),
+            title: Text(title),
+            trailing: Text(data),
           ),
         ));
   }
