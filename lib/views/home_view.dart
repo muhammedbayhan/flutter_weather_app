@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_weather_app/constants/global_colors.dart';
 import 'package:flutter_weather_app/constants/page_padding.dart';
+import 'package:flutter_weather_app/widgets/status_card.dart';
 import 'package:flutter_weather_app/widgets/weather_card.dart';
 
 class HomeView extends StatelessWidget {
@@ -35,7 +36,7 @@ class HomeView extends StatelessWidget {
                   .copyWith(color: GlobalColors.white),
               textAlign: TextAlign.center,
             ),
-                Text(
+            Text(
               "Thur,Dec 7",
               style: Theme.of(context)
                   .textTheme
@@ -43,12 +44,21 @@ class HomeView extends StatelessWidget {
                   .copyWith(color: GlobalColors.systemGrey),
               textAlign: TextAlign.center,
             ),
-            
             WeatherCard(),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.35,
+              child: ListView(
+                children: [
+                  StatusCard(),
+                  StatusCard(),
+                  StatusCard(),
+                      
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
