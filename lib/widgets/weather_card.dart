@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_weather_app/constants/global_colors.dart';
 
 class WeatherCard extends StatelessWidget {
-   WeatherCard({
-    super.key,required this.imagePath,required this.degrees,required this.description
-  });
+  WeatherCard(
+      {super.key,
+      required this.imagePath,
+      required this.degrees,
+      required this.description});
   String imagePath;
   String degrees;
   String description;
@@ -23,6 +25,7 @@ class WeatherCard extends StatelessWidget {
         ),
         Expanded(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
                 degrees,
@@ -32,8 +35,7 @@ class WeatherCard extends StatelessWidget {
                     .copyWith(color: GlobalColors.white),
                 textAlign: TextAlign.center,
               ),
-              
-                       Text(
+              Text(
                 description,
                 style: Theme.of(context)
                     .textTheme
@@ -41,7 +43,6 @@ class WeatherCard extends StatelessWidget {
                     .copyWith(color: GlobalColors.white),
                 textAlign: TextAlign.center,
               ),
-              
             ],
           ),
         ),
