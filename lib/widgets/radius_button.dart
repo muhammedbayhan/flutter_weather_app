@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_weather_app/constants/global_colors.dart';
+import 'package:flutter_weather_app/views/forecast_view.dart';
+import 'package:get/get.dart';
 
 class RadiusButton extends StatelessWidget {
   const RadiusButton({
@@ -11,7 +13,7 @@ class RadiusButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {Get.to(()=>ForecastView());},
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
