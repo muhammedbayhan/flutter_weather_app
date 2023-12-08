@@ -15,6 +15,7 @@ class HomeView extends StatelessWidget {
     final TextEditingController _searchController=TextEditingController();
   @override
   Widget build(BuildContext context) {
+  
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: GlobalColors.primary,
@@ -27,7 +28,7 @@ class HomeView extends StatelessWidget {
                 if (snapshot.hasError || _homeViewModel.data == null) {
 
                   Future.delayed(Duration.zero, () async {
-                    _homeViewModel.city.value="istanbul";
+                    _homeViewModel.city.value="ankara";//if the wrong character is entered, ankara will be displayed
                       });
                   return Center(
                     child:HomeView()
