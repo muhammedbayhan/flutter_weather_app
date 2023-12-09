@@ -86,35 +86,38 @@ class ForecastView extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "${_forecastViewModel.datax!.list![index].main!.temp}",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .displaySmall!
-                                          .copyWith(color: GlobalColors.white),
-                                    ),
-                                    Text(
-                                      "${_forecastViewModel.datax!.list![index].weather![0].description!}",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .titleSmall!
-                                          .copyWith(color: GlobalColors.white),
-                                    ),
-                                    Text(
-                                      formatDateTime(_forecastViewModel
-                                          .datax!.list![index].dtTxt
-                                          .toString()),
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .titleSmall!
-                                          .copyWith(color: GlobalColors.white),
-                                    ),
-                                  ],
+                                Padding(
+                                    padding: EdgeInsets.only(left: 10),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "${_forecastViewModel.datax!.list![index].main!.temp}",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displaySmall!
+                                            .copyWith(color: GlobalColors.white),
+                                      ),
+                                      Text(
+                                        "${_forecastViewModel.datax!.list![index].weather![0].description!}",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleSmall!
+                                            .copyWith(color: GlobalColors.white),
+                                      ),
+                                      Text(
+                                        formatDateTime(_forecastViewModel
+                                            .datax!.list![index].dtTxt
+                                            .toString()),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleSmall!
+                                            .copyWith(color: GlobalColors.white),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(right: 10),

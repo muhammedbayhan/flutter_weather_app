@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_weather_app/constants/global_colors.dart';
 import 'package:flutter_weather_app/constants/page_padding.dart';
-import 'package:flutter_weather_app/viewmodels/forecast_viewmodel.dart';
 import 'package:flutter_weather_app/viewmodels/home_viewmodel.dart';
 import 'package:flutter_weather_app/widgets/location_info.dart';
 import 'package:flutter_weather_app/widgets/radius_button.dart';
@@ -42,7 +41,7 @@ class HomeView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(flex: 1, child: SearchField(searchController: _searchController, homeViewModel: _homeViewModel)),
-                      Expanded(flex: 2, child: LocationInfo(city: _homeViewModel.data?.name.toString() ?? "", country: _homeViewModel.data?.sys?.country ?? "")),
+                      Expanded(flex: 1, child: LocationInfo(city: _homeViewModel.data?.name.toString() ?? "", country: _homeViewModel.data?.sys?.country ?? "")),
                       Expanded(flex: 2, child: WeatherCard(imagePath: "assets/images/${_homeViewModel.data!.weather![0].icon}.png", degrees: _homeViewModel.data!.main!.temp.toString(), description: _homeViewModel.data!.weather![0].main!)),
                       Expanded(child: StatusCard(title: "Wind", data: "${_homeViewModel.data!.wind!.speed}km/h", imagePath: "assets/images/wind.png")),
                       Expanded(child: StatusCard(title: "Humidity", data: "%${_homeViewModel.data!.main!.humidity}", imagePath: "assets/images/humidity.png")),
