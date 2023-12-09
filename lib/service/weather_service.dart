@@ -1,12 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_weather_app/models/forecast_model.dart';
 import 'package:flutter_weather_app/models/weather_model.dart';
+import 'package:flutter_weather_app/utils/api_config.dart';
 
 class WeatherService {
   Future<WeatherModel?> fetchWeatherData(String? city) async {
     try {
       String endpoint =
-          "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=2e37bceb4ed6a24ee3ce101dd2447d8d&units=metric";
+          "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=${ApiConfig.openWeatherApiKey}&units=metric";
       final response = await Dio().get(
         endpoint,
         options: Options(
@@ -35,7 +36,7 @@ class WeatherService {
     Future<Forecast?> fetchForecast(String? city) async {
     try {
       String endpoint =
-          "https://api.openweathermap.org/data/2.5/forecast?q=$city&appid=2e37bceb4ed6a24ee3ce101dd2447d8d&units=metric";
+          "https://api.openweathermap.org/data/2.5/forecast?q=$city&appid=${ApiConfig.openWeatherApiKey}&units=metric";
       final response = await Dio().get(
         endpoint,
         options: Options(
