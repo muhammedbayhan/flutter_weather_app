@@ -51,7 +51,30 @@ class ForecastView extends StatelessWidget {
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
-                                GlobalColors.primary,
+                                _forecastViewModel.datax!.list![index]
+                                                .weather![0].icon ==
+                                            "11d" ||
+                                        _forecastViewModel.datax!.list![index]
+                                                .weather![0].icon ==
+                                            "11n" ||
+                                        _forecastViewModel.datax!.list![index]
+                                                .weather![0].icon ==
+                                            "10n" ||
+                                        _forecastViewModel.datax!.list![index]
+                                                .weather![0].icon ==
+                                            "10d" ||
+                                        _forecastViewModel.datax!.list![index]
+                                                .weather![0].icon ==
+                                            "09d" ||
+                                        _forecastViewModel.datax!.list![index]
+                                                .weather![0].icon ==
+                                            "09n"
+                                    ? Colors.blue
+                                    : _forecastViewModel.datax!.list![index]
+                                                .main!.temp! >=
+                                            30
+                                        ? Colors.amber
+                                        : GlobalColors.primary,
                                 GlobalColors.primaryML,
                                 GlobalColors.primaryEL,
                               ],
@@ -64,7 +87,8 @@ class ForecastView extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
@@ -82,8 +106,9 @@ class ForecastView extends StatelessWidget {
                                           .copyWith(color: GlobalColors.white),
                                     ),
                                     Text(
-                                      formatDateTime(
-                                          _forecastViewModel.datax!.list![index].dtTxt.toString()),
+                                      formatDateTime(_forecastViewModel
+                                          .datax!.list![index].dtTxt
+                                          .toString()),
                                       style: Theme.of(context)
                                           .textTheme
                                           .titleSmall!
@@ -95,8 +120,8 @@ class ForecastView extends StatelessWidget {
                                   padding: EdgeInsets.only(right: 10),
                                   child: Image.asset(
                                     "assets/images/${_forecastViewModel.datax!.list![index].weather![0].icon}.png",
-                                    height:
-                                        MediaQuery.of(context).size.height * 0.1,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.1,
                                   ),
                                 ),
                               ],
